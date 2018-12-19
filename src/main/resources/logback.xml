@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!-- appender: logback日志的展示方式
+	     name: 为打赢的位置起一个变量
+	     class属性: ch:qos.logback.core.ConsoleAppender 对控制台打印
+	-->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <!--
+            layout: 用来控制日志的输出格式
+            class: 具体输出格式的泪
+        -->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%p] %d{yyyy-MM-dd HH:mm:ss} %m %n</pattern>
+        </layout>
+    </appender>
+    <!--
+        root: 根日志 只能有一个
+        level: 控制根日志的级别 如果想更清晰完整的看见项目的日志，可以把level的值改成ERROR
+    -->
+    <root level="ERROR">
+        <appender-ref ref="stdout"/>
+    </root>
+    <!--
+        logger: 子日志 可以书写多个
+        name: 书写包名
+        level: 书写当前展示包中的日志级别
+    -->
+    <logger name="com.baizhi.dao" level="DEBUG"/>
+</configuration>

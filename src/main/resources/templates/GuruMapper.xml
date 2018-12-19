@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.GuruDao">
+
+
+    <select id="selectGuru" resultType="Guru">
+        select
+        *
+        from guru
+    </select>
+    <!--<delete id="" parameterType="">-->
+    <!--delete from students0 where s_id=#{stuId}-->
+    <!--</delete>-->
+    <!--<update id="" parameterType="">-->
+    <!--update students0-->
+    <!--set s_name=#{stuName},sex=#{sex},mobile=#{mobile},c_id=#{clazzId}-->
+    <!--&lt;!&ndash; <set>-->
+    <!--<if test="s_name!=null and s_name!=''">-->
+    <!--s_name=#{stuName},-->
+    <!--</if>-->
+    <!--<if test="sex!=null and sex!=''">-->
+    <!--sex=#{sex},-->
+    <!--</if>-->
+    <!--<if test="mobile!=null and mobile!=''">-->
+    <!--mobile=#{mobile},-->
+    <!--</if>	-->
+    <!--<if test="c_id!=null and c_id!=''">-->
+    <!--c_id=#{clazzId}-->
+    <!--</if>	-->
+    <!--</set> &ndash;&gt;-->
+    <!--where s_id=#{stuId}-->
+    <!--</update>-->
+    <!--<insert id="insertStudent" parameterType="Student">-->
+    <!--insert into students0 values(students_seq.nextval,#{stuName},#{sex},#{mobile},#{clazzId})-->
+    <!--</insert>-->
+
+</mapper>

@@ -1,0 +1,3 @@
+server:
+  port: 9999   #代表当前端口
+  context-path: /jiald #访问项目名设置

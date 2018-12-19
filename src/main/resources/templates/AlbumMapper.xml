@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.AlbumDao">
+
+    <resultMap type="Album" id="albums">
+        <id property="id" column="aid"/>
+        <result property="name" column="atitle"/>
+        <result property="score" column="ascore"/>
+        <result property="brodecast" column="abrodecast"/>
+        <result property="author" column="aauthor"/>
+        <result property="description" column="adescription"/>
+        <result property="publicTime" column="apublicTime"/>
+        <result property="count" column="acount"/>
+        <result property="coverImg" column="acoverImg"/>
+        <result property="status" column="astatus"/>
+        <collection property="children" ofType="Chapter">
+            <id property="id" column="cid"/>
+            <result property="name" column="cname"/>
+            <result property="url" column="curl"/>
+            <result property="size" column="csize"/>
+            <result property="length" column="clength"/>
+            <result property="times" column="ctimes"/>
+            <result property="createTime" column="ccreateTime"/>
+            <result property="AlbumId" column="cAlbumId"/>
+        </collection>
+    </resultMap>
+    <select id="selectAlbum" resultMap="albums">
+        select
+        a.id aid,a.title atitle,a.score ascore,a.brodecast abrodecast,a.author aauthor,a.description adescription,a.publicTime apublicTime,a.count acount,a.coverImg acoverImg,a.status astatus,
+        c.id cid , c.name cname , c.url curl , c.size csize , c.length clength , c.times ctimes , c.createTime ccreateTime , c.AlbumId cAlbumId
+        from album a
+        left join chapter c
+        on a.id = c.AlbumId
+
+    </select>
+    <select id="selectAlbumCount" resultType="Integer">
+        select
+  		count(*)
+  		from album
+    </select>
+    <delete id="deleteAlbum" parameterType="Album">
+        delete from album where id=#{id}
+    </delete>
+    <!--<update id="" parameterType="">-->
+    <!--update students0-->
+    <!--set s_name=#{stuName},sex=#{sex},mobile=#{mobile},c_id=#{clazzId}-->
+    <!---->
+    <!--where s_id=#{stuId}-->
+    <!--</update>-->
+    <insert id="addAlbum" parameterType="Album">
+        insert into album values(#{id},#{name},#{score},#{brodecast},#{author},#{description},#{publicTime},#{count},#{coverImg},#{status})
+    </insert>
+
+</mapper>

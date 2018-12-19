@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.UserDao">
+
+
+    <select id="selectUserByName" parameterType="String" resultType="User">
+        select
+        *
+        from user
+        where name = #{name}
+    </select>
+    <select id="selectUserById" parameterType="String" resultType="User">
+        select * from user where id=#{id}
+    </select>
+    <!--<delete id="" parameterType="">-->
+    <!--delete from students0 where s_id=#{stuId}-->
+    <!--</delete>-->
+    <update id="updateUser" parameterType="User">
+        update user
+        set sex=#{sex},photo=#{photo},sex=#{sex},sign=#{sign},name=#{name},privoince=#{privoince},city=#{city},password=#{password}
+        where id=#{id}
+    </update>
+    <insert id="addUser" parameterType="User">
+        insert into user values(#{id},#{photo,jdbcType=VARCHAR},#{dharmaName,jdbcType=VARCHAR},#{name},#{sex,jdbcType=NUMERIC},#{privoince,jdbcType=VARCHAR},#{city,jdbcType=VARCHAR},#{sign,jdbcType=VARCHAR},#{phoneNum,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{salt,jdbcType=VARCHAR},#{creatTime,jdbcType=DATE},#{status,jdbcType=NUMERIC})
+    </insert>
+
+</mapper>

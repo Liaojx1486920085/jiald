@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.ChapterDao">
+
+
+    <delete id="deleteChapter" parameterType="String">
+        delete from chapter where id=#{id}
+    </delete>
+    <!--<update id="" parameterType="">-->
+    <!--update students0-->
+    <!--set s_name=#{stuName},sex=#{sex},mobile=#{mobile},c_id=#{clazzId}-->
+    <!---->
+    <!--where s_id=#{stuId}-->
+    <!--</update>-->
+    <insert id="addChapter" parameterType="Chapter">
+        insert into chapter values(#{id},#{name},#{url},#{size},#{length},#{times},#{createTime},#{AlbumId})
+    </insert>
+
+</mapper>

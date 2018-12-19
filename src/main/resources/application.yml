@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev   #访问选择配置文件
+  #修改对jsp支持的模板
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  #MyBatis配置文件
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    #驱动源  阿里
+    driver-class-name: com.mysql.jdbc.Driver    #数据库
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/db
+  #中文处理
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+mybatis:
+  mapper-locations: classpath:templates/*.xml
+  type-aliases-package: com.baizhi.entity  #别名
+#jsp热部署，无需重启项目刷新
+server:
+  jsp-servlet:
+    init-parameters:
+      development: true
